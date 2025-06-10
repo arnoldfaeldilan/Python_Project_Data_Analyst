@@ -118,3 +118,38 @@ plt.show()
 - Highest paid skills like dplyr, bitbucket, and gitlab offer median salaries close to $190K–$200K, indicating that niche or specialized tools yield premium compensation for Data Analysts.
 - Most in-demand skills, including python, tableau, and r, offer lower median salaries (around $90K–$95K), suggesting that widespread use may dilute salary premiums.
 - There's a disconnect between demand and pay—tools like excel and word are frequently requested but command the lowest median salaries, highlighting that high demand doesn’t always equate to high compensation.
+
+## 4. What are the most optimal skills to learn for Data Analysts?
+
+### Visualize Data
+
+```python
+from adjustText import adjust_text
+
+plt.figure(figsize=(8,5))
+ax = sns.scatterplot(data=df_plot, x='skill_percent', y='median_salary', hue='technology')
+sns.set_theme(style='ticks')
+sns.despine()
+
+texts = []
+for i in range(len(df_job_skills)):
+    x = df_job_skills['skill_percent'].iloc[i]
+    y = df_job_skills['median_salary'].iloc[i] + 100  # tiny Y shift to avoid stacking
+    label = df_job_skills.index[i]
+    texts.append(ax.text(x, y, label, fontsize=11, weight='bold'))
+
+```
+
+### Results
+
+![Most Optimal Skill To Learn](3_Project/images/most_optimal_skills.png)
+
+*Scatter plot graph visualizing the most optimal skills to learn for data analysts.*
+
+### Insights
+
+- SQL is the most in-demand skill for data analysts, appearing in over 14% of job postings. As a programming skill, it also offers a solid median salary (~$91K), making it highly optimal to learn.
+
+- Python is the highest-paying programming skill, with a median salary close to $98K. Despite being in fewer postings (~8%), it offers great value due to its high salary and growing relevance in data analysis and machine learning.
+
+- Tableau and Power BI are top analyst tools to consider, with Tableau offering a higher median salary (~$93K) and appearing in ~8% of job postings. Power BI appears in 5% and provides a decent salary ($90K), making both valuable for data visualization.
